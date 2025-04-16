@@ -36,29 +36,16 @@ export default function Header() {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2 font-bold">
             <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-              S
+              K
             </div>
-            <span>SaaSify</span>
+            <span>K-2</span>
           </div>
-          <nav className="hidden md:flex gap-8">
-            <Link
-              href="#features"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Features
-            </Link>
-          </nav>
+         
           <div className="hidden md:flex gap-4 items-center">
             <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
               {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <Link
-              href="#"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Log in
-            </Link>
             <Button className="rounded-full">
               Get Started
               <ChevronRight className="ml-1 size-4" />
@@ -83,13 +70,7 @@ export default function Header() {
             className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b"
           >
             <div className="container py-4 flex flex-col gap-4">
-              <Link href="#features" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                Features
-              </Link>
               <div className="flex flex-col gap-2 pt-2 border-t">
-                <Link href="#" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                  Log in
-                </Link>
                 <Button className="rounded-full">
                   Get Started
                   <ChevronRight className="ml-1 size-4" />

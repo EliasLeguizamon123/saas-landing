@@ -7,9 +7,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SaaSify - Streamline Your Workflow",
-  description: "Boost productivity, reduce costs, and scale your business with our all-in-one SaaS platform.",
-    generator: 'v0.dev'
+  title: "K-2 | Chatbot",
+  description: "Your next IA Chatbot for your customer support",
+  icons: {
+    icon: "/icon.svg"
+  }
 }
 
 export default function RootLayout({
