@@ -1,4 +1,4 @@
-import Link from "next/link";
+import React from "react";
 import { Button } from "./ui/button";
 import { ChevronRight, Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes"
@@ -16,83 +16,83 @@ export default function Header() {
 
     const toggleTheme = () => {
         setTheme(theme === "dark" ? "light" : "dark")
-      }
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         setMounted(true)
         const handleScroll = () => {
-          if (window.scrollY > 10) {
-            setIsScrolled(true)
-          } else {
-            setIsScrolled(false)
-          }
+            if (window.scrollY > 10) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
         }
     
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
-      }, [])
+    }, [])
 
     return (
         <header
-        className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"}`}
-      >
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2 font-bold">
-            <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-              K
-            </div>
-            <span>K-2</span>
-          </div>
+            className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"}`}
+        >
+            <div className="container flex h-16 items-center justify-between">
+                <div className="flex items-center gap-2 font-bold">
+                    <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
+                        K
+                    </div>
+                    <span>K-2</span>
+                </div>
          
-          <div className="hidden md:flex gap-4 items-center">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            <Button className="rounded-full" onClick={() => setModalOpen(true)}>
-              Get Started
-              <ChevronRight className="ml-1 size-4" />
-            </Button>
+                <div className="hidden md:flex gap-4 items-center">
+                    <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
+                        {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
+                        <span className="sr-only">Toggle theme</span>
+                    </Button>
+                    <Button className="rounded-full" onClick={() => setModalOpen(true)}>
+                        Get Started
+                        <ChevronRight className="ml-1 size-4" />
+                    </Button>
 
-          </div>
-          <div className="flex items-center gap-4 md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b"
-          >
-            <div className="container py-4 flex flex-col gap-4">
-              <div className="flex flex-col gap-2 pt-2 border-t">
-                <Button className="rounded-full">
-                  Get Started
-                  <ChevronRight className="ml-1 size-4" />
-                </Button>
-              </div>
+                </div>
+                <div className="flex items-center gap-4 md:hidden">
+                    <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
+                        {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
+                    </Button>
+                    <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                        {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+                        <span className="sr-only">Toggle menu</span>
+                    </Button>
+                </div>
             </div>
-          </motion.div>
-        )}
-        <Modal
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-        title="¡Bienvenido a K-2!"
-        description="Comenzá a usar tu chatbot en segundos"
-      >
-        <p className="text-sm text-muted-foreground">
-          Acá iría tu contenido del modal. Puede ser un form, links, etc.
-        </p>
-      </Modal>
-      </header>
+            {/* Mobile menu */}
+            {mobileMenuOpen && (
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b"
+                >
+                    <div className="container py-4 flex flex-col gap-4">
+                        <div className="flex flex-col gap-2 pt-2 border-t">
+                            <Button className="rounded-full">
+                                Get Started
+                                <ChevronRight className="ml-1 size-4" />
+                            </Button>
+                        </div>
+                    </div>
+                </motion.div>
+            )}
+            <Modal
+                open={modalOpen}
+                onOpenChange={setModalOpen}
+                title="¡Bienvenido a K-2!"
+                description="Comenzá a usar tu chatbot en segundos"
+            >
+                <p className="text-sm text-muted-foreground">
+                    Acá iría tu contenido del modal. Puede ser un form, links, etc.
+                </p>
+            </Modal>
+        </header>
     )
 }

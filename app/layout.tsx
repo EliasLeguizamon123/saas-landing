@@ -7,27 +7,27 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "K-2 | Chatbot",
-  description: "Your next IA Chatbot for your customer support",
-  icons: {
-    icon: "/icon.svg"
-  }
+    title: "K-2 | Chatbot",
+    description: "Your next IA Chatbot for your customer support",
+    icons: {
+        icon: "/icon.svg"
+    }
 }
 
 export default function RootLayout({
-  children,
+    children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body className={inter.className}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                    {children}
+                </ThemeProvider>
+            </body>
+        </html>
+    )
 }
 
 
