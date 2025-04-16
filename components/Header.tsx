@@ -4,10 +4,13 @@ import { ChevronRight, Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
+import { Modal } from "./Modal" // Ajustá la ruta si está en otro lado
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [modalOpen, setModalOpen] = useState(false)
+
     const { theme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
@@ -46,10 +49,11 @@ export default function Header() {
               {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <Button className="rounded-full">
+            <Button className="rounded-full" onClick={() => setModalOpen(true)}>
               Get Started
               <ChevronRight className="ml-1 size-4" />
             </Button>
+
           </div>
           <div className="flex items-center gap-4 md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
@@ -79,6 +83,16 @@ export default function Header() {
             </div>
           </motion.div>
         )}
+        <Modal
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        title="¡Bienvenido a K-2!"
+        description="Comenzá a usar tu chatbot en segundos"
+      >
+        <p className="text-sm text-muted-foreground">
+          Acá iría tu contenido del modal. Puede ser un form, links, etc.
+        </p>
+      </Modal>
       </header>
     )
 }
