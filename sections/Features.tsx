@@ -44,7 +44,7 @@ export default function Features() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3"
+                    className="w-full grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3"
                 >
                     {features.map((feature, i) => (
                         <motion.div key={i} variants={item} className=''>
