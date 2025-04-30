@@ -41,7 +41,7 @@ export default function Header() {
                     <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
                         K
                     </div>
-                    <span>K-2</span>
+                    <span>K2</span>
                 </div>
          
                 <div className="hidden md:flex gap-4 items-center">

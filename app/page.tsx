@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { motion } from "framer-motion"
 import {
     Check,
@@ -13,6 +12,7 @@ import Header from "@/components/Header"
 import { Card, CardContent } from "@/components/ui/card"
 import features from "@/lib/feat"
 import Link from "next/link"
+import Chat from "@/components/Chat"
 
 export default function LandingPage() {
     const container = {
@@ -76,16 +76,8 @@ export default function LandingPage() {
                             transition={{ duration: 0.7, delay: 0.2 }}
                             className="relative mx-auto max-w-5xl"
                         >
-                            <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
-                                <Image
-                                    src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center"
-                                    width={1280}
-                                    height={720}
-                                    alt="SaaSify dashboard"
-                                    className="w-full h-auto"
-                                    priority
-                                />
-                                <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
+                            <div className="rounded-xl overflow-hidden mb-8 shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
+                                <Chat />
                             </div>
                             <div className="absolute -bottom-6 -right-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl opacity-70"></div>
                             <div className="absolute -top-6 -left-6 -z-10 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-secondary/30 to-primary/30 blur-3xl opacity-70"></div>
@@ -145,7 +137,7 @@ export default function LandingPage() {
                                 <span>K-S</span>
                             </div>
                             <p className="text-sm text-muted-foreground">
-                                K-S.O your workflow with our all-in-one SaaS platform. Boost productivity and scale your business.
+                                K2 your workflow with our all-in-one SaaS platform. Boost productivity and scale your business.
                             </p>
                             <div className="flex gap-4">
                                 <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -206,7 +198,7 @@ export default function LandingPage() {
                     </div>
                     <div className="flex flex-col gap-4 sm:flex-row justify-between items-center border-t border-border/40 pt-8">
                         <p className="text-xs text-muted-foreground">
-                            &copy; {new Date().getFullYear()} K-S.O All rights reserved.
+                            &copy; {new Date().getFullYear()} K2 All rights reserved.
                         </p>
                         {/* <div className="flex gap-4">
               <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
